@@ -1,6 +1,7 @@
 from __future__ import print_function
 import gym
 import Env1Trainer
+import math
 
 env = gym.make('Env-1-v0')
 env.reset()
@@ -16,9 +17,14 @@ for i_episode in range(2):
         observation, reward, done = env.step(action)
         if last_reward - reward > 0.01:
             action = env.action_space.sample()
-            env.recover_last_parameters()
+            observation = env.recover_last_parameters()
             print('IT WAS A BAD ACTION!!!!')
         else:
+            if math.fabs(reward - last_reward) < 0.05:
+                if action is 1:
+                    action = 3
+                else:
+                    action = env.action_space.sample()
             last_reward = reward
         print(reward)
         if reward >= 0.980:
@@ -28,6 +34,8 @@ for i_episode in range(2):
             break
         elif done:
             print('Exceeded Tests!')
+        print('--------------------------')
+        print ('Action: ' + str(action))
     if solved:
         print('Solved!!!!!!!')
         break

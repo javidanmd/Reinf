@@ -90,13 +90,14 @@ class Env1Class(gym.Env):
         self.last_conv2d = None
         self.last_epochs = None
         self.last_steps_i = None
-        
+
         self._seed()
 
     def recover_last_parameters(self):
         self.conv2d = self.last_conv2d
         self.epochs = self.last_epochs
         self.steps_i = self.last_steps_i
+        return (self.conv2d, self.epochs, self.steps_per_epoch[self.steps_i])
 
     def _step(self, action):
 
@@ -134,8 +135,8 @@ class Env1Class(gym.Env):
 
     def _reset(self):
         self.mnist = MNIST_CNN()
-        self.conv2d = int(self.np_random.uniform(0, 5))
-        self.epochs = int(self.np_random.uniform(1, 10))
+        self.conv2d = int(self.np_random.uniform(0, 3))
+        self.epochs = int(self.np_random.uniform(1, 4))
         self.steps_i = 50
         return self.conv2d, self.epochs, self.steps_per_epoch[self.steps_i]
 
