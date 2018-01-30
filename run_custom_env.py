@@ -1,3 +1,4 @@
+from __future__ import print_function
 import gym
 import Env1Trainer
 
@@ -11,27 +12,27 @@ for i_episode in range(2):
     action = env.action_space.sample()
     last_reward = 0.0
     for t in range(20):
-        print 'i_episode:', i_episode, 't:', t, observation
+        print('i_episode:', i_episode, 't:', t, observation)
         observation, reward, done = env.step(action)
         if last_reward - reward > 0.01:
             action = env.action_space.sample()
             env.recover_last_parameters()
-            print 'IT WAS A BAD ACTION!!!!'
+            print('IT WAS A BAD ACTION!!!!')
         else:
             if reward - last_reward < 0.05:
                 action = env.action_space.sample()
             last_reward = reward
-        print reward
+        print(reward)
         if reward >= 0.980:
             solved = True
             accuracy_gained = reward
             final_observation = observation
             break
         elif done:
-            print 'Exceeded Tests!'
+            print('Exceeded Tests!')
     if solved:
-        print 'Solved!!!!!!!'
+        print('Solved!!!!!!!')
         break
 
-print 'Best accuracy is:', accuracy_gained
-print final_observation
+print('Best accuracy is:', accuracy_gained)
+print(final_observation)
