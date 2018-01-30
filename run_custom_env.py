@@ -11,10 +11,13 @@ final_observation = None
 for i_episode in range(2):
     observation = env.reset()
     action = env.action_space.sample()
+    print('Action: ' + str(action))
     last_reward = 0.0
     for t in range(20):
         print('i_episode:', i_episode, 't:', t, observation)
         observation, reward, done = env.step(action)
+        print('--------------------------')
+        print('Action: ' + str(action))
         if last_reward - reward > 0.01:
             action = env.action_space.sample()
             observation = env.recover_last_parameters()
@@ -34,8 +37,6 @@ for i_episode in range(2):
             break
         elif done:
             print('Exceeded Tests!')
-        print('--------------------------')
-        print ('Action: ' + str(action))
     if solved:
         print('Solved!!!!!!!')
         break
