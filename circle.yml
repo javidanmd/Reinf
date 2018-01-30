@@ -1,0 +1,13 @@
+machine:
+  python:
+    version: 3.5.1
+  environment:
+    TF_BINARY_URL: https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.10.0rc0-cp35-cp35m-linux_x86_64.whl
+    KERAS_BACKEND: tensorflow
+
+dependencies:
+  pre:
+    - pip install -U $TF_BINARY_URL
+    - pip install Keras
+    - python run_custom_env.py
+  
