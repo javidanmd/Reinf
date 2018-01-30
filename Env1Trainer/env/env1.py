@@ -2,6 +2,7 @@ from __future__ import print_function
 import gym
 from gym import error, spaces, utils
 from gym.utils import seeding
+from gym.utils import seeding
 
 from keras.datasets import mnist
 from keras.models import Sequential
@@ -90,6 +91,8 @@ class Env1Class(gym.Env):
         self.last_epochs = None
         self.last_steps_i = None
 
+        self.seed()
+
     def recover_last_parameters(self):
         self.conv2d = self.last_conv2d
         self.epochs = self.last_epochs
@@ -131,10 +134,14 @@ class Env1Class(gym.Env):
 
     def _reset(self):
         self.mnist = MNIST_CNN()
-        self.conv2d = 0
-        self.epochs = 1
+        self.conv2d = int(self.np_random.uniform(0, 5))
+        self.epochs = int(self.np_random.uniform(1, 10))
         self.steps_i = 50
         return self.conv2d, self.epochs, self.steps_per_epoch[self.steps_i]
 
     def _render(self, mode='human', close=False):
         pass
+
+    def _seed(self, seed=None):
+        self.np_random, seed = seeding.np_random(seed)
+        return [seed]
