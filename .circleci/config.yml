@@ -5,7 +5,7 @@ jobs:
     docker:
       - image:  circleci/python:3.6.4
         environment:
-          TF_BINARY_URL:  https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.10.0rc0-cp35-cp35m-linux_x86_64.whl
+          TF_BINARY_URL:  https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.5.0-cp34-cp34m-linux_x86_64.whl
           KERAS_BACKEND:  tensorflow
     steps:
       - checkout
