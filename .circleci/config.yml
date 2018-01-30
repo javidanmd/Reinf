@@ -10,7 +10,7 @@ jobs:
     steps:
       - checkout
       - run: sudo chown -R circleci:circleci /usr/local/bin
-      - run: sudo chown -R circleci:circleci /usr/local/lib/python3.6/site-packages
+      - run: sudo chown -R circleci:circleci /usr/local/lib/python3.5/site-packages
       - run: sudo pip install -U $TF_BINARY_URL
       - run: sudo pip install Keras
       - run:
