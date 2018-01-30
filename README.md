@@ -8,6 +8,7 @@ It is implemented using:
 - Python
 - Keras
 - OpenAI gym
+- CircleCI v2 configuration
 
 ## Environment 2
 Implementation is not finished yet and it will be available soon. I am using **RL** for hierarchical clustering. This work will be published soon and the source will be available here. The original code that I have implemented is in **MATLAB** and currently I am implementing it in pure **tensorflow**.
