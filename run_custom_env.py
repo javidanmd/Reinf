@@ -21,7 +21,7 @@ for i_episode in range(2):
             if reward - last_reward < 0.05:
                 action = env.action_space.sample()
             last_reward = reward
-        print (reward)
+        print reward
         if reward >= 0.980:
             solved = True
             accuracy_gained = reward
