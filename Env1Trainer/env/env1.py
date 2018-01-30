@@ -90,8 +90,8 @@ class Env1Class(gym.Env):
         self.last_conv2d = None
         self.last_epochs = None
         self.last_steps_i = None
-
-        self.seed()
+        
+        self._seed()
 
     def recover_last_parameters(self):
         self.conv2d = self.last_conv2d

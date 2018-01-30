@@ -19,8 +19,6 @@ for i_episode in range(2):
             env.recover_last_parameters()
             print('IT WAS A BAD ACTION!!!!')
         else:
-            if reward - last_reward < 0.05:
-                action = env.action_space.sample()
             last_reward = reward
         print(reward)
         if reward >= 0.980:
