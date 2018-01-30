@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/Reinf
     docker:
-      - image:  circleci/python:3.5.1
+      - image:  circleci/python:3.5.3
         environment:
           TF_BINARY_URL: https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.10.0rc0-cp35-cp35m-linux_x86_64.whl
           KERAS_BACKEND: tensorflow
